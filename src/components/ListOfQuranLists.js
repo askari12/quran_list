@@ -40,7 +40,7 @@ const ListOfQuranLists = () => {
   const updateQuranList = () => {
 
     setShowRetryButton(false)
-    const API = "http://quran-list-backend-j7z8.vercel.app"
+    const API = "https://quran-list-backend-j7z8.vercel.app"
     axios.get(`${API}/allQuranLists`)
       .then(response => {
         const quranList = response.data.quran_list
