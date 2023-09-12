@@ -37,21 +37,24 @@ const ListOfQuranLists = () => {
   const quranList = useSelector(state => state.page.quranList)
   const [showRetryButton , setShowRetryButton] = useState(false)
 
+  const updateQuranList = () => {
+
+    setShowRetryButton(false)
+    const API = "http://quran-list-backend-j7z8.vercel.app"
+    axios.get(`${API}/allQuranLists`)
+      .then(response => {
+        const quranList = response.data.quran_list
+        dispatch(setQuranList(quranList))
+      })
+      .catch(e => {
+        setShowRetryButton(true)
+        console.log(e)
+      })
+  }
+
   useEffect(() => {
-    const updateQuranList = () => {
-      setShowRetryButton(false)
-      const API = "http://quran-list-backend-j7z8.vercel.app"
-      axios.get(`${API}/allQuranLists`)
-        .then(response => {
-          const quranList = response.data.quran_list
-          dispatch(setQuranList(quranList))
-        })
-        .catch(e => {
-          setShowRetryButton(true)
-          console.log(e)
-        })
-    }
     updateQuranList()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
