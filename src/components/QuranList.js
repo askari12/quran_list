@@ -1,13 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { goBackToMainPage } from '../page/pageReducer'
 
-const data = {
-  title: "TITLE",
-  users: Array.from(Array(10).keys()).map(item => {
-    return {name: "Random Name"}
-  })
-}
-
 const GoBackButton = () => {
 
   const dispatch = useDispatch()
@@ -40,10 +33,11 @@ const Title = ({listNumber, title}) => {
 }
 
 const Content = ({users}) => {
+  const sortedUsers = users.slice().sort((a, b) => b.para - a.para);
   return (
     <div>
       {
-        users.map(( user, index ) => {
+        sortedUsers.map(( user, index ) => {
           const pos = index + 1
           return (
             <div key={index} className="bg-sky-100 font-bold text-center w-1/2 pt-5 pb-5 mt-4 ml-auto mr-auto">
@@ -61,12 +55,15 @@ const QuranList = () => {
 
   const pageState = useSelector(state => state.page)
   const selectedList = pageState.selectedList
+  const totalQuranList = pageState.quranList
+  const listIndex = selectedList - 1
+  const quranList = totalQuranList.length > listIndex ? totalQuranList[listIndex] : {}
 
   return (
     <>
       <GoBackButton />
-      <Title title={data.title} listNumber={selectedList} /> 
-      <Content users={data.users} />
+      {quranList && <Title title={quranList.title} listNumber={selectedList} /> }
+      {quranList && <Content users={quranList.users} /> }
     </>
   )
 }

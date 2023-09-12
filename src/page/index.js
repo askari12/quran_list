@@ -19,7 +19,7 @@ const Page = () => {
       <ListOfQuranLists />
     }
     {
-      selectedList &&
+      selectedList !== 0 &&
       <QuranList />
     }
     </>
