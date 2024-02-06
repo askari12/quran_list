@@ -38,12 +38,12 @@ const ListOfQuranLists = () => {
   const [showRetryButton , setShowRetryButton] = useState(false)
 
   const updateQuranList = () => {
-
     setShowRetryButton(false)
-    const API = "https://quran-list-backend-j7z8.vercel.app"
-    axios.get(`${API}/allQuranLists`)
+
+    const API = "https://quran-list-backend.vercel.app"
+    axios.get(`${API}/quranList/getAllLists`)
       .then(response => {
-        const quranList = response.data.quran_list
+        const quranList = response.data
         dispatch(setQuranList(quranList))
       })
       .catch(e => {
