@@ -1,35 +1,9 @@
+import RetryButton from './RetryButton'
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { setSelectedList, setQuranList } from '../page/pageReducer'
+import { setQuranList } from '../../page/pageReducer'
 import axios from 'axios'
-
-const RetryButton = ({callBack}) => {
-  return (
-    <div className="bg-sky-200 text-center h-24 flex justify-center items-center m-2 cursor-pointer" onClick={callBack}>
-      Retry
-    </div>
-  )
-}
-
-const QuranList = ({obj}) => {
-
-  const dispatch = useDispatch()
-  const listNumber = obj + 1
-
-  const changePage = () => {
-    dispatch(
-      setSelectedList(
-        listNumber
-      )
-    )
-  }
-
-  return (
-    <div className="bg-sky-200 text-center h-24 flex justify-center items-center m-2 cursor-pointer" onClick={changePage}>
-      List Number {listNumber}
-    </div>
-  )
-}
+import QuranListPageDisplay from './QuranListPageDisplay'
 
 const ListOfQuranLists = () => {
 
@@ -70,7 +44,7 @@ const ListOfQuranLists = () => {
     const jsonParsedData = data ? JSON.parse(data) : null
 
     const isExpired = checkIfDataIsExpired (jsonParsedData)
-    if (!isExpired) {
+    if (isExpired) {
       localStorage.setItem(LOCAL_STORAGE_QL_KEY, null)
       return null
     }
@@ -100,13 +74,13 @@ const ListOfQuranLists = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-2">
+    <div>
       { showRetryButton === true && 
         <RetryButton callBack={updateQuranList} />
       }
       {
         showRetryButton === false &&
-        quranList?.map((object, i) => <QuranList obj={i} key={i} />)
+        <QuranListPageDisplay quranList={quranList} />
       }
     </div>
   )
