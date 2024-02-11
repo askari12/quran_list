@@ -20,7 +20,7 @@ const SearchBar = ({quranList}) => {
   const [filteredUsers, setFilteredUsers] = useState([])
 
   useEffect (() => {
-    if (!searchText || searchText == "") {
+    if (!searchText || searchText === "") {
       setFilteredUsers([])
       return
     }
