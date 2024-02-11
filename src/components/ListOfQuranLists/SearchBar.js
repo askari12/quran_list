@@ -29,6 +29,8 @@ const SearchBar = ({quranList}) => {
       return (item?.user?.toLowerCase())?.includes(searchText?.toLowerCase())
     })
     setFilteredUsers(tempFilteredUsers)
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchText])
 
   return (
