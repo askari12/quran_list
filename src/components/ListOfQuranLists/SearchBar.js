@@ -30,7 +30,6 @@ const SearchBar = ({quranList}) => {
     })
     setFilteredUsers(tempFilteredUsers)
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchText])
 
   return (
