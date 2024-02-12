@@ -8,7 +8,7 @@ const SearchBar = ({quranList}) => {
     allUsers = [...allUsers, ...item.users.map((user, userIndex) => {
       return {
         quranListIndex,
-        userIndex,
+        para: userIndex,
         user,
         startDate: item.startDate,
         endDate: item.endDate
