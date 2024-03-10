@@ -10,8 +10,8 @@ function App() {
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/namazTimings" element={<NamazTimingPage />}></Route>
+        <Route path="/quran_list" element={<HomePage />} />
+        <Route path="/quran_list/namazTimings" element={<NamazTimingPage />}></Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
 

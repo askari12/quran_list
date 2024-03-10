@@ -1,21 +1,12 @@
 
-import { useState, useEffect } from "react";
-import { act } from "react-dom/test-utils";
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
 
-  const QURAN_LIST_PATHNAME = "/";
-  const NAMAZ_TIMINGS_PATHNAME = "/namazTimings";
+  const QURAN_LIST_PATHNAME = "/quran_list";
+  const NAMAZ_TIMINGS_PATHNAME = "/quran_list/namazTimings";
 
-  const [activePage, setActivePage] = useState(null)
-  const location = useLocation();
   const navigate = useNavigate();
-
-  useEffect (() => {
-    const locationPathName = location.pathname
-    setActivePage(locationPathName)
-  }, [])
 
   const redirectToQuranList = () => {
     navigate(QURAN_LIST_PATHNAME)
