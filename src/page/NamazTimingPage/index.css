@@ -1,0 +1,208 @@
+@keyframes crack-animation {
+  0% { background-position: center; }
+  100% { background-position: right; }
+}
+
+h1 {
+  text-align: center;
+  color: #334257;
+  margin-top: 0;
+  padding: 20px 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 24px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+#prayerTimes {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 5px solid #dcdcdc;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th {
+  padding: 10px;
+  text-align: center;
+  color: white;
+  letter-spacing: 2px;
+  background-color: #334257;
+  font-weight: bold;
+  border-radius: 10px 10px 0 0;
+  text-transform: uppercase;
+}
+
+td {
+  padding: 10px;
+  text-align: center;
+  color: black;
+}
+
+tr:nth-child(even) {
+  background-color: #f4f4f4;
+}
+
+tr:hover {
+  background-color: #e6e6e6;
+  transform: scale(1.02);
+}
+
+td:first-child {
+  font-weight: bold;
+  color: #334257;
+}
+
+.prayer-time {
+  font-weight: bold;
+  text-align: center;
+  animation: crack-animation 5s infinite linear;
+  background-color: #334257;
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+  font-size: 18px;
+  transition: transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.prayer-time::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(to right, #334257, #f4f4f4, #334257);
+  border-radius: 50px;
+}
+
+/* Additional details */
+
+td:last-child {
+  color: #334257; /* Detail 1: Change the last column color */
+}
+
+table caption {
+  font-weight: bold; /* Detail 2: Add bold font weight to the table caption */
+}
+
+th:first-child {
+  border-radius: 10px 0 0 0; /* Detail 3: Adjust border radius of the first column */
+}
+
+th:last-child {
+  border-radius: 0 10px 0 0; /* Detail 4: Adjust border radius of the last column */
+}
+
+tr td {
+  font-weight: bold; /* Detail 5: Add bold font weight to the first row cells */
+}
+
+.prayer-time::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#334257 20%, transparent 100%); /* Detail 7: Add radial gradient overlay */
+  opacity: 0.3;
+}
+
+.prayer-time:hover {
+  transform: scale(1.05); /* Detail 8: Increase scale on hover */
+}
+
+.prayer-time:hover::after {
+  opacity: 0.6; /* Detail 9: Increase overlay opacity on hover */
+}
+
+tr:nth-child(2n) td:first-child {
+  background-color: #f8f8f8; /* Detail 10: Add alternate background color to first column */
+}
+
+tr:nth-child(2n) td:last-child {
+  background-color: #f4f4f4; /* Detail 11: Add alternate background color to last column */
+}
+
+.prayer-time span {
+  display: block;
+  font-size: 14px; /* Detail 12: Adjust font size of prayer time labels */
+  color: #334257;
+  font-weight: normal; /* Detail 13: Reset font weight of prayer time labels */
+}
+
+.prayer-time:before {
+  content: '\f550';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  font-size: 20px; /* Detail 14: Adjust size of the prayer time icon */
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.prayer-time:hover:before {
+  color: #dcdcdc; /* Detail 15: Change prayer time icon color on hover */
+}
+
+.prayer-time:hover span {
+  color: #dcdcdc; /* Detail 16: Change prayer time label color on hover */
+}
+
+table:focus {
+  outline: none; /* Detail 17: Remove table focus outline */
+}
+
+tr:focus {
+  outline: none; /* Detail 18: Remove row focus outline */
+}
+
+@media (max-width: 480px) {
+  #prayerTimes {
+    padding: 10px; /* Detail 19: Adjust padding on smaller screens */
+  }
+  
+  th,
+  td {
+    padding: 5px; /* Detail 20: Adjust padding on smaller screens */
+  }
+  
+  h1 {
+    font-size: 20px; /* Detail 21: Adjust heading font size on smaller screens */
+  }
+  
+  .prayer-time {
+    font-size: 16px; /* Detail 22: Adjust prayer time font size on smaller screens */
+  }
+  
+  .prayer-time::before {
+    height: 6px; /* Detail 23: Adjust height of the prayer time bar on smaller screens */
+  }
+  
+  .prayer-time:before {
+    font-size: 16px; /* Detail 24: Adjust size of the prayer time icon on smaller screens */
+  }
+  
+  .prayer-time span {
+    font-size: 12px; /* Detail 25: Adjust font size of prayer time labels on smaller screens */
+  }
+}
+
