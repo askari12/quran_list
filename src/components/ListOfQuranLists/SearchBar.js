@@ -11,7 +11,6 @@ const SearchBar = ({quranList}) => {
         para: userIndex,
         user,
         startDate: item.startDate,
-        endDate: item.endDate
       }
     })]
   })

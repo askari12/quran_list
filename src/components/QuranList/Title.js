@@ -8,7 +8,7 @@ const Title = ({listNumber, title, description, startDate, endDate}) => {
       </div>
 
       <div className="bg-sky-200 font-bold text-center text-lg md:text-3xl w-11/12 md:w-2/3 pt-5 pb-5 mt-4 ml-auto mr-auto">
-        <Moment format='DD MMMM'>{startDate}</Moment> - <Moment format='DD MMMM'>{endDate}</Moment>
+        <Moment format='DD MMMM'>{startDate}</Moment>
       </div>
 
       <div className="bg-sky-200 font-bold text-center text-lg md:text-3xl w-11/12 md:w-2/3 pt-5 pb-5 mt-4 ml-auto mr-auto">
