@@ -5,6 +5,7 @@ import { setQuranList } from '../../page/pageReducer'
 import axios from 'axios'
 import QuranListPageDisplay from './QuranListPageDisplay'
 
+// UPDATE
 const ListOfQuranLists = () => {
 
   const LOCAL_STORAGE_QL_KEY = "ql"
