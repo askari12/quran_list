@@ -64,7 +64,7 @@ const ListOfQuranLists = () => {
   const updateQuranList = () => {
     setShowRetryButton(false)
 
-    const data = null//getDataFromLocalStorage()
+    const data = getDataFromLocalStorage()
     if (data) updateDataFromLocalStorage(data)
     else updateDataFromServer()
   }
