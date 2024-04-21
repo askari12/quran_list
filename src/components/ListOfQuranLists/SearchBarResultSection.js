@@ -29,7 +29,7 @@ const SearchBarResultSection = ({filteredUsers}) => {
                     <p>{item.user}</p>
                     <p>Quran List: {item.quranListIndex + 1}</p>
                     <p>Para: {item.para + 1}</p>
-                    <Moment format='DD MMMM'>{item.startDate}</Moment>
+                    <Moment format='DD MMMM'>{item.startDate}</Moment> - <Moment format='DD MMMM'>{item.endDate}</Moment>
                     <div className="grid grid-cols-2 mt-5">
                         <div className="bg-sky-200 ml-4 mr-2 pl-5 pr-5 pt-2 pb-2 font-bold text-center cursor-pointer"
                           onClick={e => redirectPara(e, item)} >
