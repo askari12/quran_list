@@ -95,6 +95,10 @@ const ListOfQuranLists = () => {
   const rotateRight = (arr, shift) => {
     const n = arr.length;
     const k = shift % n; // handle shifts larger than array
+    
+    if (n === 0) return arr;
+    if (k === 0) return arr.slice();
+    
     return arr.slice(-k).concat(arr.slice(0, n - k));
   }
 
