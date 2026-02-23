@@ -5,6 +5,8 @@ import { setQuranList } from '../../page/pageReducer'
 import axios from 'axios'
 import QuranListPageDisplay from './QuranListPageDisplay'
 import list1 from "../../raw_data/list1.json"
+import list2 from "../../raw_data/list2.json"
+import list3 from "../../raw_data/list3.json"
 
 // UPDATE
 const ListOfQuranLists = () => {
@@ -63,7 +65,7 @@ const ListOfQuranLists = () => {
   }
 
   const getDataFromFrontend = () => {
-    let compiledList = [list1]
+    let compiledList = [list1, list2, list3]
     let alteredList = []
 
     const currentDate = getCurrentDate()
