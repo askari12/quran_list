@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { setQuranList } from '../../page/pageReducer'
 import axios from 'axios'
 import QuranListPageDisplay from './QuranListPageDisplay'
+import list1 from "../../raw_data/list1.json"
 
 // UPDATE
 const ListOfQuranLists = () => {
@@ -61,10 +62,51 @@ const ListOfQuranLists = () => {
     dispatch(setQuranList(data))
   }
 
+  const getDataFromFrontend = () => {
+    let compiledList = [list1]
+    let alteredList = []
+
+    const currentDate = getCurrentDate()
+    compiledList.forEach(listData => {
+
+      const tempListData = JSON.parse(JSON.stringify(listData))
+
+      const listStartDate = new Date(tempListData.startDate)
+      const diffInDays = getDiffInDays(listStartDate, currentDate)
+      tempListData.users = rotateRight(tempListData.users, diffInDays)
+      tempListData.startDate = currentDate.toISOString()
+
+      alteredList.push(tempListData)
+    })
+
+    return alteredList
+  }
+
+  const getDiffInDays = (d1, d2) => {
+    d1.setHours(0, 0, 0, 0);
+    d2.setHours(0, 0, 0, 0);
+
+    const diffInMs = d2 - d1;
+    return Math.round(diffInMs / (1000 * 60 * 60 * 24));
+  }
+
+  const rotateRight = (arr, shift) => {
+    const n = arr.length;
+    const k = shift % n; // handle shifts larger than array
+    return arr.slice(-k).concat(arr.slice(0, n - k));
+  }
+
+  const getCurrentDate = () => {
+    const currentDate = new Date()
+    currentDate.setHours(5, 0, 0, 0);
+    return currentDate
+  }
+
+
   const updateQuranList = () => {
     setShowRetryButton(false)
 
-    const data = null//getDataFromLocalStorage()
+    const data = getDataFromFrontend()
     if (data) updateDataFromLocalStorage(data)
     else updateDataFromServer()
   }

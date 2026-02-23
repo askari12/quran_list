@@ -3,6 +3,7 @@ node_modules/
 bin/
 dist/
 lib/
+antig/
 
 # editors
 *.swp
