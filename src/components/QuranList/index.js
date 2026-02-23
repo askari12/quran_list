@@ -1,6 +1,7 @@
 import GoBackButton from './GoBackButton'
 import Title from './Title'
 import Content from './Content'
+import CopyButton from './CopyButton'
 import { useSelector } from 'react-redux'
 import { useState } from 'react'
 
@@ -49,6 +50,7 @@ const QuranList = () => {
   return (
     <>
       <GoBackButton />
+      {quranList && <CopyButton description={quranList.description} listNumber={selectedList} startDate={quranList.startDate} users={quranListUsers} /> }
       {quranList && <Title title={quranList.title} listNumber={selectedList} description={quranList.description} startDate={quranList.startDate} endDate={quranList.endDate} onDateChange={handleDateChange}/> }
       {quranList && <Content users={quranListUsers} /> }
     </>
